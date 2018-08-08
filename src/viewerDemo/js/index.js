@@ -38,7 +38,7 @@ requirejs(['../comm/app.js'], function () {
             };
             function toggleButtons(mode) {
                 if (/modal|inline|none/.test(mode)) {
-                    // $buttons.find('button[data-enable]').prop('disabled', true).filter('[data-enable*="' + mode + '"]').prop('disabled', false);
+                    $buttons.find('button[data-enable]').prop('disabled', true).filter('[data-enable*="' + mode + '"]').prop('disabled', false);
                 }
             }
             $images.on({
@@ -77,17 +77,6 @@ requirejs(['../comm/app.js'], function () {
                 $images.viewer('destroy').viewer(options);
                 toggleButtons(options.inline ? 'inline' : 'modal');
             });
-            // 测试内联
-            $("#test").bind('click', function () {
-                var name = $(this).attr('name');
-
-                options.inline =true;
-                // options.url = 'body';
-                // options.exit = 'exit';
-                let  $body= parent.$('#xxx');
-
-                $($body).viewer('destroy').viewer(options);
-            });
             /**
              * 优化日期：2018/8/6
              * 功能描述：按钮事件绑定
@@ -112,7 +101,7 @@ requirejs(['../comm/app.js'], function () {
                     }
                 }
             });
-            // $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="tooltip"]').tooltip();
         });
     });
 });
